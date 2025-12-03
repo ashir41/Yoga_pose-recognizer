@@ -1,0 +1,45 @@
+---
+title: Yoga Pose Recognizer
+layout: page
+---
+
+<input id="photo-input" type="file" accept="image/*">
+<div id="results"></div>
+
+<script type="module">
+import { Client } from "https://esm.sh/@gradio/client";
+
+const input = document.getElementById("photo-input");
+const results = document.getElementById("results");
+
+input.addEventListener("change", async () => {
+    const file = input.files[0];
+    if (!file) return;
+
+    results.innerHTML = "Predicting...";
+
+    try {
+        const client = await Client.connect("ashir16/yoga_pose_recognizer");
+
+        const result = await client.predict("/recognize_image", { image: file });
+
+        console.log("FULL RESULT:", result); // debug
+
+        // ✅ Extract label correctly
+        const predictionObj = result.data[0];
+        const label = predictionObj.label;
+        //const topConfidence = predictionObj.confidences[0].confidence;
+
+        results.innerHTML = `
+            <img src="${URL.createObjectURL(file)}" width="400">
+            <p style="font-size:20px; font-weight:bold;">
+                Prediction: ${label} <br>
+                
+            </p>
+        `;
+    } catch (err) {
+        console.error(err);
+        results.innerHTML = "<p style='color:red;'>Prediction failed.</p>";
+    }
+});
+</script>

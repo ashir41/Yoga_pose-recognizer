@@ -1,0 +1,10 @@
+remote_theme: beautiful-jekyll@master
+plugins:
+  - jekyll-remote_theme
+
+title: Yoga Pose Recognizer
+description: A web application that uses machine learning to recognize 11 different yoga poses from images.
+
+Author: 
+  name: MD Ashir Intheshar
+  email: ashirintheshar456@gmail.com

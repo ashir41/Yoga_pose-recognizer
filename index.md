@@ -1,7 +1,7 @@
 ---
 
 title: Home
-layout: page
+layout: Page
 
 ---
 

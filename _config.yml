@@ -1,4 +1,4 @@
-remote_theme: daattali/beautiful-jekyll@master
+remote_theme: CloudCannon/hydra-jekyll-template@main
 plugins:
   - jekyll-remote_theme
 

@@ -1,6 +1,6 @@
-remote_theme: CloudCannon/hydra-jekyll-template@main
+remote_theme: cotes2020/chirpy-starter@main
 plugins:
-  - jekyll-feed
+  - jekyll-remmote-theme
 
 title: Yoga Pose Recognizer
 description: A web application that uses machine learning to recognize 11 different yoga poses from images.
